@@ -14,6 +14,18 @@ const navLinks = [
         label: "Posts", 
     },
     { 
+        href: "/schedule", 
+        label: "Schedule", 
+    },
+    { 
+        href: "/about", 
+        label: "About", 
+    },
+    { 
+        href: "/shows", 
+        label: "Shows", 
+    },
+    { 
         href: "/contacts",
         label: "Contacts", 
     },
