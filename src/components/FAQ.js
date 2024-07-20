@@ -8,7 +8,7 @@ import {
 
 function FAQ(){
     return (
-    <div className="bg-white flex flex-col min-h-screen">
+    <div className="bg-white flex flex-col">
         <h1>FAQ</h1>
 
     <Accordion type="single" collapsible className="w-full">
