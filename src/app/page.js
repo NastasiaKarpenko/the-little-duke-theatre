@@ -8,6 +8,7 @@ import LatestPosts from "@/components/LatestPosts.js";
 import FAQ from "@/components/FAQ.js";
 
 
+
 export default function Home() {
   return (
     <main className="text-center">

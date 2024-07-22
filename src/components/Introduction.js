@@ -5,7 +5,7 @@ import Image from 'next/image';
 function Introduction() {
   return (
     <section className="py-12 bg-white">
-      <div className="container mx-auto flex flex-col md:flex-row items-center">
+      <div className="container mx-auto flex flex-col md:flex-row items-center ">
         <div className="w-full md:w-1/2 mb-6 md:mb-0">
           <Image 
           src="/lady.jpg" 
