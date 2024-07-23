@@ -16,7 +16,7 @@ function UpcomingEvents() {
           <Image 
             src="/temporary_g.jpg" 
             alt="Event Image"
-            className=" h-auto"
+            className=" h-auto shadow-md rounded-lg"
             width={600}
             height={400}
           />

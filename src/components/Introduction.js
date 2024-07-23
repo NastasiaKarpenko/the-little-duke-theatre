@@ -10,7 +10,7 @@ function Introduction() {
           <Image 
           src="/lady.jpg" 
           alt="Introduction Image" 
-          className="w-full h-auto" 
+          className="w-full h-auto shadow-md rounded-lg" 
           width={500} 
           height={500} />
         </div>
