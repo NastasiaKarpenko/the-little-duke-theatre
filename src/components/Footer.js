@@ -35,7 +35,7 @@ function Footer() {
         </div>
         <div className="flex flex-col items-center">
         <Button href="./registration" buttonName="Register Now" />
-        <Button href="/signin" buttonName="Sign in" />
+        <Button href="/dashboard" buttonName="Sign in" />
         </div>
       </div>
       <div className="container mx-auto flex justify-center mt-8">
