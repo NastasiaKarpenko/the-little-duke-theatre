@@ -9,7 +9,7 @@ function Footer() {
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center mb-6 md:mb-0">
           <Image
-            src="/path/to/logo.png" // Змініть шлях на ваш
+            src="/example.jpeg" // Змініть шлях на ваш
             alt="Little Duke Theatre Logo"
             width={100}
             height={100}
@@ -35,32 +35,32 @@ function Footer() {
         </div>
         <div className="flex flex-col items-center">
         <Button href="./registration" buttonName="Register Now" />
-        <Button href="/dashboard" buttonName="Sign in" />
+        <Button href="/signin" buttonName="Sign in" />
         </div>
       </div>
       <div className="container mx-auto flex justify-center mt-8">
         <span className="text-gray-600 mr-4">Follow us:</span>
         <div className="flex space-x-4">
           <Image
-            src="/path/to/social-icon1.png" // Змініть шлях на ваш
+            src="/example.jpeg" // Змініть шлях на ваш
             alt="Social Icon 1"
             width={24}
             height={24}
           />
           <Image
-            src="/path/to/social-icon2.png" // Змініть шлях на ваш
+            src="/example.jpeg" // Змініть шлях на ваш
             alt="Social Icon 2"
             width={24}
             height={24}
           />
           <Image
-            src="/path/to/social-icon3.png" // Змініть шлях на ваш
+            src="/example.jpeg" // Змініть шлях на ваш
             alt="Social Icon 3"
             width={24}
             height={24}
           />
           <Image
-            src="/path/to/social-icon4.png" // Змініть шлях на ваш
+            src="/example.jpeg" // Змініть шлях на ваш
             alt="Social Icon 4"
             width={24}
             height={24}

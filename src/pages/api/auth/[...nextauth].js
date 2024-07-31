@@ -4,13 +4,13 @@ import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { cert } from "firebase-admin/app";
 
 const authOptions = {
-  // Configure one or more authentication providers
+  // should I add more authentication providers?
   providers: [
     GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET
       })
-    // ...add more providers here
+    // need to ask client do they need more providers here
   ],
   adapter: FirestoreAdapter({
     credential: cert({
@@ -19,6 +19,22 @@ const authOptions = {
       privateKey: process.env.AUTH_FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     }),
   }),
-}
+  //callbacks: {
+   // async session({session, user, token}) {
+     // session.user.role = token.role;
+     // return session;
+    //},
+    //async jwt({token, user, account, profile, isNewUser }) {
+     // if (user) {
+    //   token.role = user.role;
+     // }
+      //return token;
+   // },
+ // },
+ // secret: process.env.NEXTAUTH_SECRET,
+
+};
+
+
 
 export default NextAuth(authOptions)
