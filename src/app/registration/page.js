@@ -7,58 +7,53 @@ const RegistrationForm = () => {
     const initialValues = {
         firstName: '',
         lastName: '',
-        dateOfBirth: '', 
+        dateOfBirth: '',
         address: '',
-        familyDoctor:'',
-        healthConditions:'',
-        guardianName:'',
-        phoneNumber:'',
+        familyDoctor: '',
+        healthConditions: '',
+        guardianName: '',
+        phoneNumber: '',
         email: ''
         /*"I consent to photos of my child being used on social media for promotional purposes"*/
-    };
+    }
 
     validationSchema: Yup.object({
         firstName: Yup.string()
-          .max(15, 'Must be 15 characters or less')
-          .required('Required'),
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
         lastName: Yup.string()
-          .max(20, 'Must be 20 characters or less')
-          .required('Required'),
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
         email: Yup.string().email('Invalid email address').required('Required'),
-      }),
-      onSubmit: values => {
-        alert(JSON.stringify(values, null, 2));
-      },
-    });
+    })
 
     const handleSubmit = (values) => {
         // Perform form validation and submission logic here
         // You can access the form data using values.firstName, values.lastName, etc.
-        console.log(values);
-    };
+        console.log(values)
+    }
 
     return (
-        
-<form onSubmit={formik.handleSubmit}>
-       <label htmlFor="firstName">First Name</label>
-       <input
-         id="firstName"
-         name="firstName"
-         type="text"
-         onChange={formik.handleChange}
-         onBlur={formik.handleBlur}
-         value={formik.values.firstName}
-       />
-       {formik.touched.firstName && formik.errors.firstName ? (
-         <div>{formik.errors.firstName}</div>
-       ) : null}
+        // <form onSubmit={formik.handleSubmit}>
+        //     <label htmlFor="firstName">First Name</label>
+        //     <input
+        //         id="firstName"
+        //         name="firstName"
+        //         type="text"
+        //         onChange={formik.handleChange}
+        //         onBlur={formik.handleBlur}
+        //         value={formik.values.firstName}
+        //     />
+        //     {formik.touched.firstName && formik.errors.firstName ? (
+        //         <div>{formik.errors.firstName}</div>
+        //     ) : null}
+        // </form>
 
-</form>
-
-        /*<Formik
+        <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
             validate={validateForm}
+            validationSchema={validationSchema}
         >
             <Form>
                 <div>
@@ -90,7 +85,7 @@ const RegistrationForm = () => {
         </Formik>
     );
 };
-
+/*
 // Render the registration form component
 ReactDOM.render(<RegistrationForm />, document.getElementById('root'));
         const lastNameInput = document.createElement('input');
@@ -144,3 +139,6 @@ ReactDOM.render(<RegistrationForm />, document.getElementById('root'));
 // Create an instance of the registration form and render it
 const registrationForm = new RegistrationForm();
 registrationForm.render();*/
+
+
+export default RegistrationForm

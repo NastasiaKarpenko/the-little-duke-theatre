@@ -19,22 +19,24 @@ const authOptions = {
       privateKey: process.env.AUTH_FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     }),
   }),
-  //callbacks: {
-   // async session({session, user, token}) {
-     // session.user.role = token.role;
-     // return session;
-    //},
+  callbacks: {
+    async session({session, token}) {
+      session.user.role = session.user.role || 'registered';
+      console.log('session', session);
+      return session;
+     },
     //async jwt({token, user, account, profile, isNewUser }) {
      // if (user) {
     //   token.role = user.role;
      // }
       //return token;
    // },
- // },
+ },
  // secret: process.env.NEXTAUTH_SECRET,
 
 };
 
 
 
-export default NextAuth(authOptions)
+export default NextAuth(authOptions);
+export { authOptions }; 
