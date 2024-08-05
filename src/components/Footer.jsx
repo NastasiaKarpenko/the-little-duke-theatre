@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 function Footer() {
   return (
-    <footer className="py-8 bg-white border-t border-gray-200">
+    <footer className="py-8 bg-white border-t border-gray-200 mt-auto">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center mb-6 md:mb-0">
           <Image
@@ -34,7 +34,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-col items-center">
-        <Button href="./registration" buttonName="Register Now" />
+        <Button href="/registration" buttonName="Register Now" />
         <Button href="/signin" buttonName="Sign in" />
         </div>
       </div>

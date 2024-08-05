@@ -22,9 +22,9 @@ function Page() {
   let calendarId =
     // "en.ukrainian#holiday@group.v.calendar.google.com"
   "f0911ab58b8390e149c0bd265808a6a5146cafa824a702a87bcf48d204ff7ba4@group.calendar.google.com"
-  let publicKey = GOOGLE_API_KEY
+  let publicKey = process.env.GOOGLE_API_KEY
 
-
+  console.log(publicKey);
   // let calendarId = 'en.usa%23holiday@group.v.calendar.google.com';
   let dataManger = new DataManager({
     url:

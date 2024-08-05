@@ -10,7 +10,6 @@ import {
   startAfter,
 } from "firebase/firestore";
 import ClassItem from "./ClassItem";
-import Button from "./Button";
 
 const NUMBER_OF_CLASSES = 3;
 
