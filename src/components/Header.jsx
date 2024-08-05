@@ -22,10 +22,6 @@ const navLinks = [
         label: "About", 
     },
     { 
-        href: "/shows", 
-        label: "Shows", 
-    },
-    { 
         href: "/contacts",
         label: "Contacts", 
     },
