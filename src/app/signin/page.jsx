@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from 'react'
+
 import { useRouter } from 'next/navigation'
 import { useSession, signIn, signOut, getSession } from "next-auth/react"
 import { collection, query } from "firebase/firestore"
@@ -12,8 +12,6 @@ function Signin() {
   const { data: session } = useSession()
   const router = useRouter()
   const [users, loading, error] = useCollection(query(collection(db, "users")))
-
-  console.log(session, users)
 
   return (
     <div className='p-4'>
@@ -30,4 +28,4 @@ function Signin() {
   )
 }
 
-export default Signin
+export default Signin;

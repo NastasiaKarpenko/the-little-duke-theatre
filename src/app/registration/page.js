@@ -33,6 +33,10 @@ const Page = () => {
     ),
     email: Yup.string().email("Invalid email address").required("Required"),
     phoneNumber: Yup.string().required("Required"),
+    // address: Yup.string().required("Required"),
+    // familyDoctor: Yup.string().required("Required"),
+    // healthConditions: Yup.string().required("Required"),
+    guardianName: Yup.string().required("Required"),
   });
 
   const handleSubmit = (values) => {

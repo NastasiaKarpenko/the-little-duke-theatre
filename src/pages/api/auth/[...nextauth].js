@@ -2,6 +2,7 @@ import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { cert } from "firebase-admin/app";
+import { app } from "@/db/firebase";
 
 const authOptions = {
   // should I add more authentication providers?
@@ -12,13 +13,14 @@ const authOptions = {
       })
     // need to ask client do they need more providers here
   ],
-  adapter: FirestoreAdapter({
-    credential: cert({
-      projectId: process.env.AUTH_FIREBASE_PROJECT_ID,
-      clientEmail: process.env.AUTH_FIREBASE_CLIENT_EMAIL,
-      privateKey: process.env.AUTH_FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    }),
-  }),
+  adapter: FirestoreAdapter(app),
+ // ({
+ //   credential: cert({
+ //     projectId: process.env.AUTH_FIREBASE_PROJECT_ID,
+ //     clientEmail: process.env.AUTH_FIREBASE_CLIENT_EMAIL,
+ //     privateKey: process.env.AUTH_FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+ //   }),
+ // }),
   callbacks: {
     async session({session, token}) {
       session.user.role = session.user.role || 'registered';

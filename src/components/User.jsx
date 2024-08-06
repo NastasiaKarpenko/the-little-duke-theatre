@@ -1,24 +1,17 @@
-'use client'
-import { useSession, signIn, signOut } from "next-auth/react"
-//import { collection, query } from "firebase/firestore";
-//import { useCollection } from "react-firebase-hooks/firestore";
-//import { db } from "@/db/firebase";
-
+"use client";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Slidebar from "@/components/Sidebar";
 
 function User() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
-  if (session?.user.role === 'registered') {
-    return (
-      <div>
-        <h1>Dashboard</h1>
-        <p>Welcome, {session.user.name}</p>
-        
-      </div>
-    )
-  }
-  else {
-    return (<div>Access Denied</div>)
-  }
+  return (
+    <div>
+      <h1 className="h-full p-5 text-3xl font-bold flex justify-center">
+        Dashboard
+      </h1>
+      <Slidebar />
+    </div>
+  );
 }
-export default User
+export default User;

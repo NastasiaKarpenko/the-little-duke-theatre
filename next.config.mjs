@@ -9,7 +9,19 @@ const nextConfig = {
       NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
       GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
     },
-  };
+    
+      images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'lh3.googleusercontent.com',
+            port: '',
+            pathname: '/**',
+          },
+        ],
+      },
+    }
+  
   
   export default nextConfig;
   
