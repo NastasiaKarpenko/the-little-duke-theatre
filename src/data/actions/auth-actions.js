@@ -6,6 +6,7 @@ export async function registerUserAction(prevState, formData) {
     username: formData.get("username"),
     password: formData.get("password"),
     email: formData.get("email"),
+    role: formData.get("role"),
   };
 
   return{
