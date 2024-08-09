@@ -13,3 +13,9 @@
 @import "../../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
 @import "../../node_modules/@syncfusion/ej2-react-schedule/styles/material.css";
 
+:root {
+  button[type="button-styles"],
+  a[type="button-styles"] {
+    @apply my-2 bg-blue-400 text-white  hover:bg-white hover:text-blue-400 border border-blue-400 font-bold py-3 px-6 rounded flex align-middle justify-center text-center leading-4;
+  }
+}

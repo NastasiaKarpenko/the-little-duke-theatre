@@ -116,12 +116,7 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-md"
-              >
-                Submit
-              </button>
+              <button type="button-styles">Submit</button>
             </div>
           </div>
         </Form>

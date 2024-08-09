@@ -1,10 +1,9 @@
-import Link from "next/link";
-import { FetchPosts } from "../db/FetchPosts";
+import Link from "next/link"
+import { FetchPosts } from "../db/FetchPosts"
 
 async function PostsList() {
-    await new Promise(resolve => setTimeout(resolve, 2000)); // Simulating a slow connection.
-  
-const posts = await FetchPosts();
+  await new Promise(resolve => setTimeout(resolve, 2000)) //! Simulating a slow connection. TODO: Delete it later
+  const posts = await FetchPosts()
 
   return (
     <div>
@@ -16,6 +15,6 @@ const posts = await FetchPosts();
         ))}
       </ul>
     </div>
-  );
+  )
 }
-export default PostsList;
+export default PostsList

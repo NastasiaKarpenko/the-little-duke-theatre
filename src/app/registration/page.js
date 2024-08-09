@@ -36,7 +36,7 @@ const Page = () => {
     // address: Yup.string().required("Required"),
     // familyDoctor: Yup.string().required("Required"),
     // healthConditions: Yup.string().required("Required"),
-    guardianName: Yup.string().required("Required"),
+    guardianName: Yup.string(),
   });
 
   const handleSubmit = (values) => {
@@ -45,7 +45,10 @@ const Page = () => {
 
   return (
     <div className={s.componentContent}>
-      <h1 className="text-3xl font-bold mb-6 text-center"> Register new kid </h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        {" "}
+        Register new kid{" "}
+      </h1>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -92,16 +95,30 @@ const Page = () => {
                   <option value="placeholder" className="text-slate-400">
                     please select a lesson
                   </option>
-                  <option value="Tiny Tots (4 to 6yrs)">Tiny Tots (4 to 6yrs)</option>
+                  <option value="Tiny Tots (4 to 6yrs)">
+                    Tiny Tots (4 to 6yrs)
+                  </option>
                   <option value="Drama (6 to 8yrs)">Drama (6 to 8yrs)</option>
-                  <option value="Dance & Drama & Singing (6 to 8yrs)">Dance & Drama & Singing (6 to 8yrs)</option>
+                  <option value="Dance & Drama & Singing (6 to 8yrs)">
+                    Dance & Drama & Singing (6 to 8yrs)
+                  </option>
                   <option value="Drama (9 to 12yrs)">Drama (9 to 12yrs)</option>
-                  <option value="Drama & Dance & Singing (9 to 12 yrs)">Drama & Dance & Singing (9 to 12 yrs)</option>
-                  <option value="Singing (teenagers)">Singing (teenagers)</option>
+                  <option value="Drama & Dance & Singing (9 to 12 yrs)">
+                    Drama & Dance & Singing (9 to 12 yrs)
+                  </option>
+                  <option value="Singing (teenagers)">
+                    Singing (teenagers)
+                  </option>
                   <option value="Dance (teenagers)">Dance (teenagers)</option>
-                  <option value="Drama (13 to 15yrs)">Drama (13 to 15yrs)</option>
-                  <option value="Drama (16 to 17 yrs)">Drama (16 to 17 yrs)</option>
-                  <option value="Drama (17 to 18yrs)">Drama (17 to 18yrs)</option>
+                  <option value="Drama (13 to 15yrs)">
+                    Drama (13 to 15yrs)
+                  </option>
+                  <option value="Drama (16 to 17 yrs)">
+                    Drama (16 to 17 yrs)
+                  </option>
+                  <option value="Drama (17 to 18yrs)">
+                    Drama (17 to 18yrs)
+                  </option>
                 </Field>
               </div>
               <ErrorMessage

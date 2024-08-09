@@ -6,7 +6,7 @@ import Footer from "../components/Footer.jsx";
 import Container from "../components/Container";
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
-import SessionProvider from '../components/SessionProvider';
+import SessionProvider from '../components/ContextProvider';
 
 
 

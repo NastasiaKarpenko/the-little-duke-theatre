@@ -40,12 +40,11 @@ function ClassesList() {
     getElements(NUMBER_OF_CLASSES, cursor).then((res) => {
       setData([...data, ...res.data]);
       setCursor(res.cursor);
-      
+
       if (res.data.length < NUMBER_OF_CLASSES || !res.cursor) {
         setIsDone(true);
         return;
       }
-      
     });
   };
 
