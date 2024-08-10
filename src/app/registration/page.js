@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
 import * as Yup from "yup";
 import s from "./style.module.css";
@@ -39,8 +39,10 @@ const Page = () => {
     guardianName: Yup.string(),
   });
 
+  const formEl = useRef(null);
   const handleSubmit = (values) => {
     console.log(JSON.stringify(values, null, 2));
+    formEl.current.submit();
   };
 
   return (
@@ -54,8 +56,9 @@ const Page = () => {
         onSubmit={handleSubmit}
         // validate={validateForm}
         validationSchema={validationSchema}
+        ref={formEl}
       >
-        <Form>
+        <form action="https://getform.io/f/bgdyngwa" method="POST">
           <div className={s.formContent}>
             <div>
               <div className="flex">
@@ -172,7 +175,7 @@ const Page = () => {
           >
             Register
           </button>
-        </Form>
+        </form>
       </Formik>
     </div>
   );

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
 import * as Yup from "yup";
 import s from "./style.module.css";
@@ -24,9 +24,10 @@ const ContactForm = () => {
     phoneNumber: Yup.string().required("Required"),
     enquiry: Yup.string().required("Required"),
   });
-
+  const formEl = useRef(null);
   const handleSubmit = (values) => {
     console.log(JSON.stringify(values, null, 2));
+    formEl.current.submit();
   };
 
   return (
@@ -38,7 +39,7 @@ const ContactForm = () => {
         // validate={validateForm}
         validationSchema={validationSchema}
       >
-        <Form>
+        <form action="https://getform.io/f/bgdyngwa" method="POST">
           <div className={s.formContent}>
             <div>
               <div className="flex">
@@ -119,7 +120,7 @@ const ContactForm = () => {
               <button type="button-styles">Submit</button>
             </div>
           </div>
-        </Form>
+        </form>
       </Formik>
     </div>
   );
