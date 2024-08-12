@@ -1,5 +1,5 @@
 'use client'
-import { db } from '@/db/firebase'
+import { db } from '../db/firebase'
 import { collection } from 'firebase/firestore'
 import { SessionProvider } from 'next-auth/react'
 import { createContext } from 'react'

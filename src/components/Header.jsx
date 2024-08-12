@@ -39,7 +39,7 @@ function Header() {
   console.log("🎃 ~~ Header component: role", role);
 
   return (
-    <header className="flex justify-between items-center py-4 px-7 border-b">
+    <header className="flex justify-between items-center py-4 px-7 border-b" data-testid={'header'}>
       <Link href="/">
         <Image
           src="/Logo_header.png"

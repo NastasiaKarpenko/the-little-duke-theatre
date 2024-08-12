@@ -13,7 +13,7 @@ import ClassItem from "./ClassItem";
 
 const NUMBER_OF_CLASSES = 3;
 
-async function getElements(classLimit, cursor = null) {
+export async function getElements(classLimit, cursor = null) {
   let q = query(collection(db, "classes"), limit(classLimit));
   if (cursor) {
     q = query(collection(db, "classes"), startAfter(cursor), limit(classLimit));

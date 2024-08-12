@@ -10,7 +10,7 @@ function Footer() {
   console.log("🎃 ~~ Footer component: role", role);
 
   return (
-    <footer className="py-8 bg-white border-t border-gray-200 mt-auto">
+    <footer className="py-8 bg-white border-t border-gray-200 mt-auto" data-testid={'footer'}>
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center mb-6 md:mb-0">
           <Image

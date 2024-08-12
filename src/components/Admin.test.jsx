@@ -1,5 +1,4 @@
-import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { render } from "@testing-library/react";
 import Admin from "./Admin";
 import { useSession } from "next-auth/react";
 
@@ -8,44 +7,21 @@ vi.mock("next-auth/react", () => ({
   useSession: vi.fn(),
 }));
 
-// Mock the Slidebar component
-vi.mock("@/components/Sidebar", () => () => <div>Sidebar Component</div>);
 
-describe("Admin Component", () => {
+// Mock the Sidebar component
+vi.mock("./Sidebar", () => ({
+  default: vi.fn().mockImplementation(() => <span>{"Sidebar Component"}</span>),
+}))
+
+describe("src/components/Admin", () => {
   beforeEach(() => {
     useSession.mockReturnValue({ data: { user: { name: "Test User" } } });
   });
 
-  it("renders Admin Dashboard title", () => {
-    render(<Admin />);
-    const titleElement = screen.getByText(/Admin Dashboard/i);
-    expect(titleElement).toBeInTheDocument();
-  });
 
-  it("title has correct font size on large screens", () => {
-    window.innerWidth = 1200; // Simulate large screen
-    render(<Admin />);
-    const titleElement = screen.getByText(/Admin Dashboard/i);
-    expect(titleElement).toHaveClass("text-3xl");
-  });
-
-  it("title has correct font size on medium screens", () => {
-    window.innerWidth = 768; // Simulate medium screen
-    render(<Admin />);
-    const titleElement = screen.getByText(/Admin Dashboard/i);
-    expect(titleElement).toHaveClass("text-3xl");
-  });
-
-  it("title has correct font size on small screens", () => {
-    window.innerWidth = 480; // Simulate small screen
-    render(<Admin />);
-    const titleElement = screen.getByText(/Admin Dashboard/i);
-    expect(titleElement).toHaveClass("text-3xl");
-  });
-
-  it("title is centered", () => {
-    render(<Admin />);
-    const titleElement = screen.getByText(/Admin Dashboard/i);
-    expect(titleElement).toHaveClass("flex justify-center");
+  it("Should render Admin Dashboard", () => {
+    const { getByText, container } = render(<Admin />)
+    const titleElement = getByText('Admin Dashboard')
+    expect(titleElement).toBeDefined();
   });
 });

@@ -1,5 +1,5 @@
 "use client"
-import Slidebar from "@/components/Sidebar"
+import Sidebar from "./Sidebar"
 
 function User() {
   return (
@@ -7,7 +7,7 @@ function User() {
       <h1 className="h-full p-5 text-3xl font-bold flex justify-center">
         Dashboard
       </h1>
-      <Slidebar />
+      <Sidebar />
     </div>
   )
 }

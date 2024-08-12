@@ -3,8 +3,9 @@ import { FetchPosts } from "../db/FetchPosts"
 
 async function PostsList() {
   await new Promise(resolve => setTimeout(resolve, 2000)) //! Simulating a slow connection. TODO: Delete it later
-  const posts = await FetchPosts()
 
+  const posts = await FetchPosts()
+  console.log(posts)
   return (
     <div>
       <ul>

@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <main className="text-center">
       {/*<h1 className="text-4xl md:text-5xl font-bold mb-5">Home</h1>*/}
-
       <Hero />
       <Introduction />
       <ClassesList />
