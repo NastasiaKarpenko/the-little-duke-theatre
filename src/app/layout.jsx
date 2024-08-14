@@ -6,7 +6,7 @@ import Footer from "../components/Footer.jsx";
 import Container from "../components/Container";
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
-import SessionProvider from '../components/SessionProvider';
+import SessionProvider from '../components/ContextProvider';
 
 
 
@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
   const session = await getServerSession(authOptions);
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-zinc-200 text-zinc-800 min-h-screen`}>
+      <body className={`${inter.className} bg-zinc-200 text-zinc-800`}>
       <SessionProvider session={session}>
         <Container>
           <Header />

@@ -1,35 +1,35 @@
+"use client";
+import { signOut } from "next-auth/react";
+import Admin from "../../components/Admin"
+import User from "../../components/User";
 
-'use client';
-import { useSession, signIn, signOut } from "next-auth/react";
-import { collection, query } from "firebase/firestore";
-import { useCollection } from "react-firebase-hooks/firestore";
-import { db } from "@/db/firebase";
+import { useContext } from "react";
+import { RoleContext } from "../../components/ContextProvider";
 
-function Signin() {
-  const { data: session, status } = useSession();
-  const [users, loading, error ] = useCollection(query(collection(db, 'users')));
+const getUserBoard = (role) => {
+  if (role === "admin") return <Admin />;
+  if (role === "registered") return <User />;
+  return <div> There is no dashboard for your role </div>;
+};
 
-  if (loading) return <p>Loading...</p>
+function Dashboard() {
+  const role = useContext(RoleContext);
 
-  else if (!session) {
-    signIn();
-    return null;
-  }
-  
-  /*else if (session || session.user.role !== 'registered') {
-    return (
-      <div>
-        <p>Access Denied</p>;
-      </div>
-    );
-  }*/
-else {
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome, {session.user.name}</p>
-      <p>{users?.docs[0].data().email}</p>
-      <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onClick={() => signOut()}>Sign out</button>
-    </div>}
+  const handleSignOut = () => {
+    signOut({ callbackUrl: "/" });
+  };
+  return (
+    <div className="p-4">
+      {role ? getUserBoard(role) : "Loading..."}
+      <button
+        type="button-styles"
+        onClick={handleSignOut}
+        className="my-2 bg-blue-400 text-white  hover:bg-white hover:text-blue-400 border border-blue-400 font-bold py-3 px-6 rounded flex align-middle justify-center text-center leading-4"
+      >
+        Sign out
+      </button>
+    </div>
+  );
 }
 
-export default Signin;
+export default Dashboard;

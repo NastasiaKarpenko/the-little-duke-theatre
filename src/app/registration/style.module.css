@@ -1,0 +1,72 @@
+.componentContent {
+  display: flex;
+  flex-flow: column;
+  width: 400px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px 0 20px
+}
+
+.formContent {
+  &>div {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 2rem;
+  }
+
+  & label {
+    display: flex;
+    width: 30%;
+    align-items: center;
+  }
+
+  & input {
+    display: flex;
+    width: 70%;
+    height: 40px;
+    margin: 5px 0;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  & select {
+    width: 70%;
+    height: 40px;
+    margin: 5px 0;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+    outline: none;
+
+    & option {
+      padding: 10px;
+    }
+  }
+}
+
+.InputErrors {
+  position: relative;
+  height: 0;
+  color: red;
+  top: -0.5rem;
+}
+
+.registerBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #2979d3;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+}

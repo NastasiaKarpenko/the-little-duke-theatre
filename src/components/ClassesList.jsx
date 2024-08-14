@@ -10,11 +10,10 @@ import {
   startAfter,
 } from "firebase/firestore";
 import ClassItem from "./ClassItem";
-import Button from "./Button";
 
 const NUMBER_OF_CLASSES = 3;
 
-async function getElements(classLimit, cursor = null) {
+export async function getElements(classLimit, cursor = null) {
   let q = query(collection(db, "classes"), limit(classLimit));
   if (cursor) {
     q = query(collection(db, "classes"), startAfter(cursor), limit(classLimit));
@@ -41,12 +40,11 @@ function ClassesList() {
     getElements(NUMBER_OF_CLASSES, cursor).then((res) => {
       setData([...data, ...res.data]);
       setCursor(res.cursor);
-      
+
       if (res.data.length < NUMBER_OF_CLASSES || !res.cursor) {
         setIsDone(true);
         return;
       }
-      
     });
   };
 
