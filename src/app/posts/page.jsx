@@ -1,5 +1,5 @@
 import React, { Suspense } from "react"
-import PostsList from "@/components/Posts-list"
+import PostsList from "../../components/Posts-list"
 
 async function Page() {
   return (

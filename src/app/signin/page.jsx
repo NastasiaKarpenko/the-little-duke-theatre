@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useSession } from "next-auth/react"
-import Login from "@/components/Login"
+import Login from "../../components/Login"
 import { useEffect } from 'react'
 
 

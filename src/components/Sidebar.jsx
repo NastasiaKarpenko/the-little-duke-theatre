@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 export default function Sidebar() {

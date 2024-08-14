@@ -1,8 +1,8 @@
-"use client";
-import React, { useRef } from "react";
-import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
-import * as Yup from "yup";
-import s from "./style.module.css";
+"use client"
+import React from "react"
+import { Formik, Field, ErrorMessage, Form } from "formik"
+import * as Yup from "yup"
+import s from "./style.module.css"
 
 const ContactForm = () => {
   const initialValues = {
@@ -11,7 +11,7 @@ const ContactForm = () => {
     email: "",
     phoneNumber: "",
     enquiry: "",
-  };
+  }
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -23,12 +23,32 @@ const ContactForm = () => {
     email: Yup.string().email("Invalid email address").required("Required"),
     phoneNumber: Yup.string().required("Required"),
     enquiry: Yup.string().required("Required"),
-  });
-  const formEl = useRef(null);
-  const handleSubmit = (values) => {
-    console.log(JSON.stringify(values, null, 2));
-    formEl.current.submit();
-  };
+  })
+
+  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
+    try {
+      // Perform POST request
+      const response = await fetch('https://getform.io/f/bgdyngwa', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok.')
+      }
+      // Handle successful response
+      alert('Form submitted successfully!')
+      resetForm()
+    } catch (error) {
+      // Handle errors
+      alert('There was a problem with your submission.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <div className={s.componentContent}>
@@ -36,94 +56,94 @@ const ContactForm = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        // validate={validateForm}
         validationSchema={validationSchema}
       >
-        <form action="https://getform.io/f/bgdyngwa" method="POST">
-          <div className={s.formContent}>
-            <div>
-              <div className="flex">
-                <label htmlFor="name" className={s.label}>
-                  Name
-                </label>
-                <Field name="name" type="text" className={s.input} />
-              </div>
-              <ErrorMessage
-                name="name"
-                component="div"
-                className={s.InputErrors}
-              />
-            </div>
-
-            <div>
-              <div className="flex">
-                <label htmlFor="lastName" className={s.label}>
-                  Last name
-                </label>
-                <Field name="lastName" type="text" className={s.input} />
-              </div>
-              <ErrorMessage
-                name="lastName"
-                component="div"
-                className={s.InputErrors}
-              />
-            </div>
-
-            <div>
-              <div className="flex">
-                <label htmlFor="email" className={s.label}>
-                  Email
-                </label>
-                <Field name="email" type="email" className={s.input} />
-              </div>
-              <ErrorMessage
-                name="email"
-                component="div"
-                className={s.InputErrors}
-              />
-            </div>
-
-            <div>
-              <div className="flex">
-                <label htmlFor="phoneNumber" className={s.label}>
-                  Phone number
-                </label>
-                <Field name="phoneNumber" type="text" className={s.input} />
-              </div>
-              <ErrorMessage
-                name="phoneNumber"
-                component="div"
-                className={s.InputErrors}
-              />
-            </div>
-
-            <div>
-              <div className="flex">
-                <label htmlFor="enquiry" className={s.label}>
-                  Enquiry
-                </label>
-                <textarea
-                  type="text"
-                  name="enquiry"
-                  rows={6}
-                  className={`${s.input} h-auto w-full border border-black my-1 rounded-md`}
+        {props => (
+          <Form>
+            <div className={s.formContent}>
+              <div>
+                <div className="flex">
+                  <label htmlFor="name" className={s.label}>
+                    Name
+                  </label>
+                  <Field name="name" type="text" className={s.input} />
+                </div>
+                <ErrorMessage
+                  name="name"
+                  component="div"
+                  className={s.InputErrors}
                 />
               </div>
-              <ErrorMessage
-                name="enquiry"
-                component="div"
-                className={s.InputErrors}
-              />
-            </div>
 
-            <div>
-              <button type="button-styles">Submit</button>
+              <div>
+                <div className="flex">
+                  <label htmlFor="lastName" className={s.label}>
+                    Last name
+                  </label>
+                  <Field name="lastName" type="text" className={s.input} />
+                </div>
+                <ErrorMessage
+                  name="lastName"
+                  component="div"
+                  className={s.InputErrors}
+                />
+              </div>
+
+              <div>
+                <div className="flex">
+                  <label htmlFor="email" className={s.label}>
+                    Email
+                  </label>
+                  <Field name="email" type="email" className={s.input} />
+                </div>
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className={s.InputErrors}
+                />
+              </div>
+
+              <div>
+                <div className="flex">
+                  <label htmlFor="phoneNumber" className={s.label}>
+                    Phone number
+                  </label>
+                  <Field name="phoneNumber" type="text" className={s.input} />
+                </div>
+                <ErrorMessage
+                  name="phoneNumber"
+                  component="div"
+                  className={s.InputErrors}
+                />
+              </div>
+
+              <div>
+                <div className="flex">
+                  <label htmlFor="enquiry" className={s.label}>
+                    Enquiry
+                  </label>
+                  <textarea
+                    type="text"
+                    name="enquiry"
+                    rows={6}
+                    className={`${s.input} h-auto w-full border border-black my-1 rounded-md`}
+                  />
+                </div>
+                <ErrorMessage
+                  name="enquiry"
+                  component="div"
+                  className={s.InputErrors}
+                />
+              </div>
+
+              <div>
+                <button type="button-styles">Submit</button>
+              </div>
             </div>
-          </div>
-        </form>
+          </Form>)}
       </Formik>
     </div>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

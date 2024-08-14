@@ -1,11 +1,16 @@
 
 import { render } from "@testing-library/react"
-import { User } from "./User"
+import User from "./User"
 
-describe.skip("src/components/User", () => {
+vi.mock("./Sidebar", () => ({
+  default: vi.fn().mockImplementation(() => <span>{"Sidebar Component"}</span>),
+}))
+
+describe("src/components/User", () => {
   it("Should render Component", () => {
     const { getByText } = render(<User />)
-    const element = getByText('')
+    const element = getByText('Dashboard')
+
     expect(element).toBeDefined()
   })
 })

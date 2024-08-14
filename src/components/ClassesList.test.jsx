@@ -1,5 +1,5 @@
-import { queryByText, render } from '@testing-library/react'
-import ClassesList, { getElements } from './ClassesList'
+import { render } from '@testing-library/react'
+import ClassesList from './ClassesList'
 
 const mocks = vi.hoisted(() => {
   return {

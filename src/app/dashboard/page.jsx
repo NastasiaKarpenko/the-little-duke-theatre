@@ -1,10 +1,10 @@
 "use client";
 import { signOut } from "next-auth/react";
-import Admin from "@/components/Admin";
-import User from "@/components/User";
+import Admin from "../../components/Admin"
+import User from "../../components/User";
 
 import { useContext } from "react";
-import { RoleContext } from "@/components/ContextProvider";
+import { RoleContext } from "../../components/ContextProvider";
 
 const getUserBoard = (role) => {
   if (role === "admin") return <Admin />;

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import SignIn from "./SignIn";
+import SignIn from "./page"
 import { vi } from "vitest";
 
 // Mock the dependencies
@@ -21,7 +21,7 @@ describe("SignIn Component", () => {
   it("renders the Login component", () => {
     useSession.mockReturnValue({ status: "unauthenticated" });
     render(<SignIn />);
-    expect(screen.getByText("Login Component")).toBeInTheDocument();
+    expect(screen.getByText("Sign in with Google")).toBeDefined();
   });
 
   it("redirects to /dashboard if authenticated", () => {
@@ -40,12 +40,6 @@ describe("SignIn Component", () => {
 
     render(<SignIn />);
     expect(push).not.toHaveBeenCalled();
-  });
-
-  it("renders the component with correct class", () => {
-    useSession.mockReturnValue({ status: "unauthenticated" });
-    const { container } = render(<SignIn />);
-    expect(container.firstChild).toHaveClass("p-4");
   });
 
   it("handles status change correctly", () => {

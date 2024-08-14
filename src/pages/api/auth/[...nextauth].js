@@ -1,10 +1,9 @@
-import NextAuth from "next-auth"
-import GoogleProvider from "next-auth/providers/google"
-import { FirestoreAdapter } from "@auth/firebase-adapter"
-import { app } from "@/db/firebase"
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import { FirestoreAdapter } from "@auth/firebase-adapter";
+import { app } from "@/db/firebase";
 
 const authOptions = {
-  // should I add more authentication providers?
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -13,8 +12,13 @@ const authOptions = {
     // need to ask client do they need more providers here
   ],
   adapter: FirestoreAdapter(app),
-}
-// secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    async session({ session, user, token }) {
+      session.user.role = session.user.role || "registered";
+      return session;
+    },
+  },
+};
 
-export default NextAuth(authOptions)
-export { authOptions }
+export default NextAuth(authOptions);
+export { authOptions };
