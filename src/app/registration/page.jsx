@@ -32,7 +32,7 @@ const Page = () => {
       (value) => value !== "placeholder"
     ),
     email: Yup.string().email("Invalid email address").required("Required"),
-    phoneNumber: Yup.string().required("Required"),
+    phoneNumber: Yup.number().required("Required"),
     // address: Yup.string().required("Required"),
     // familyDoctor: Yup.string().required("Required"),
     // healthConditions: Yup.string().required("Required"),
@@ -218,7 +218,7 @@ const Page = () => {
 
             <button
               type="submit"
-              className={`${s.registerBtn} bg-gradient-to-r from-blue-400 to-sky-500  hover:from-pink-500 hover:to-sky-500 `}
+              className={s.registerBtn}
             >
               Register
             </button>

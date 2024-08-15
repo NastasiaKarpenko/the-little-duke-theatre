@@ -21,7 +21,7 @@ const ContactForm = () => {
       .max(20, "Must be 20 characters or less")
       .required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
-    phoneNumber: Yup.string().required("Required"),
+    phoneNumber: Yup.number().required("Required"),
     enquiry: Yup.string().required("Required"),
   })
 
@@ -122,7 +122,8 @@ const ContactForm = () => {
                   <label htmlFor="enquiry" className={s.label}>
                     Enquiry
                   </label>
-                  <textarea
+                  <Field
+                    as="textarea"
                     type="text"
                     name="enquiry"
                     rows={6}
@@ -137,7 +138,7 @@ const ContactForm = () => {
               </div>
 
               <div>
-                <button type="button-styles">Submit</button>
+                <button type="submit">SUBMIT</button>
               </div>
             </div>
           </Form>)}
