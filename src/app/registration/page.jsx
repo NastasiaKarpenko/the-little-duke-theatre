@@ -1,8 +1,8 @@
-"use client"
-import React from "react"
-import { Formik, Field, ErrorMessage, Form } from "formik"
-import * as Yup from "yup"
-import s from "./style.module.css"
+"use client";
+import React from "react";
+import { Formik, Field, ErrorMessage, Form } from "formik";
+import * as Yup from "yup";
+import s from "./style.module.css";
 
 const Page = () => {
   const initialValues = {
@@ -17,7 +17,7 @@ const Page = () => {
     email: "",
     phoneNumber: "",
     /*"I consent to photos of my child being used on social media for promotional purposes"*/
-  }
+  };
 
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -37,44 +37,42 @@ const Page = () => {
     // familyDoctor: Yup.string().required("Required"),
     // healthConditions: Yup.string().required("Required"),
     guardianName: Yup.string(),
-  })
+  });
 
   const handleSubmit = async (values, { resetForm, setSubmitting }) => {
     try {
       // Perform POST request
-      const response = await fetch('https://getform.io/f/aejyoddb', {
-        method: 'POST',
+      const response = await fetch("https://getform.io/f/bgdyngwa", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok.')
+        throw new Error("Network response was not ok.");
       }
       // Handle successful response
-      alert('Form submitted successfully!')
-      resetForm()
+      alert("Form submitted successfully!");
+      resetForm();
     } catch (error) {
       // Handle errors
-      alert('There was a problem with your submission.')
+      alert("There was a problem with your submission.");
     } finally {
-      setSubmitting(false)
+      setSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className={s.componentContent}>
-      <h1 className="text-3xl font-bold mb-6 text-center">
-        Register new kid
-      </h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Register new kid</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {props => (
+        {(props) => (
           <Form>
             <div className={s.formContent}>
               <div>
@@ -82,7 +80,12 @@ const Page = () => {
                   <label htmlFor="firstName" className={s.label}>
                     First Name
                   </label>
-                  <Field type="text" name="firstName" className={s.input} data-testid={"firstName"} />
+                  <Field
+                    type="text"
+                    name="firstName"
+                    className={s.input}
+                    data-testid={"firstName"}
+                  />
                 </div>
 
                 <ErrorMessage
@@ -97,7 +100,12 @@ const Page = () => {
                   <label htmlFor="lastName" className={s.label}>
                     Last Name
                   </label>
-                  <Field type="text" name="lastName" className={s.input} data-testid={"lastName"} />
+                  <Field
+                    type="text"
+                    name="lastName"
+                    className={s.input}
+                    data-testid={"lastName"}
+                  />
                 </div>
                 <ErrorMessage
                   name="lastName"
@@ -111,7 +119,12 @@ const Page = () => {
                   <label htmlFor="lesson" className={s.label}>
                     Lesson
                   </label>
-                  <Field as="select" name="lesson" className={s.input} data-testid={"lesson"}>
+                  <Field
+                    as="select"
+                    name="lesson"
+                    className={s.input}
+                    data-testid={"lesson"}
+                  >
                     <option value="placeholder" className="text-slate-400">
                       please select a lesson
                     </option>
@@ -122,7 +135,9 @@ const Page = () => {
                     <option value="Dance & Drama & Singing (6 to 8yrs)">
                       Dance & Drama & Singing (6 to 8yrs)
                     </option>
-                    <option value="Drama (9 to 12yrs)">Drama (9 to 12yrs)</option>
+                    <option value="Drama (9 to 12yrs)">
+                      Drama (9 to 12yrs)
+                    </option>
                     <option value="Drama & Dance & Singing (9 to 12 yrs)">
                       Drama & Dance & Singing (9 to 12 yrs)
                     </option>
@@ -153,7 +168,12 @@ const Page = () => {
                   <label htmlFor="email" className={s.label}>
                     Email
                   </label>
-                  <Field type="email" name="email" className={s.input} data-testid={"email"}/>
+                  <Field
+                    type="email"
+                    name="email"
+                    className={s.input}
+                    data-testid={"email"}
+                  />
                 </div>
                 <ErrorMessage
                   name="email"
@@ -165,7 +185,12 @@ const Page = () => {
               <div>
                 <div className="flex">
                   <label htmlFor="phoneNumber">Phone number</label>
-                  <Field type="tel" name="phoneNumber" className={s.input} data-testid={"tel"}/>
+                  <Field
+                    type="tel"
+                    name="phoneNumber"
+                    className={s.input}
+                    data-testid={"tel"}
+                  />
                 </div>
                 <ErrorMessage
                   name="phoneNumber"
@@ -176,7 +201,12 @@ const Page = () => {
               <div>
                 <div className="flex">
                   <label htmlFor="guardianName">Guardian Name</label>
-                  <Field type="text" name="guardianName" className={s.input} data-testid={"guardianName"} />
+                  <Field
+                    type="text"
+                    name="guardianName"
+                    className={s.input}
+                    data-testid={"guardianName"}
+                  />
                 </div>
                 <ErrorMessage
                   name="guardianName"
@@ -196,7 +226,7 @@ const Page = () => {
         )}
       </Formik>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
