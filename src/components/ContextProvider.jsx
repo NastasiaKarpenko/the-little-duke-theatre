@@ -12,7 +12,7 @@ function ContextProvider({ children, session }) {
   let role =
     !loading &&
     (users?.find((u) => u.email === session?.user.email)?.role ||
-      session.user.role);
+      session?.user.role);
   console.log("🎃 ~~ ContextProvider component: role:", role);
 
   return (
